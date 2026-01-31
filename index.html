@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اختبار اللغة الإنجليزية - جامعة صنعاء</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="light-mode">
+    <div class="theme-toggle-container">
+        <button id="themeToggle" class="theme-toggle">
+            <i class="fas fa-moon"></i> الوضع الليلي
+        </button>
+    </div>
+
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="university-logo">
+                    <i class="fas fa-university"></i>
+                    <h1>جامعة صنعاء</h1>
+                </div>
+                <div class="header-info">
+                    <h2>كلية الحاسوب وتكنولوجيا المعلومات</h2>
+                    <h3>اختبار نهائي - اللغة الإنجليزية 102</h3>
+                    <p>الإختبار الموحد لجامعة صنعاء 2024/2025</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="test-info">
+            <div class="info-card">
+                <i class="fas fa-info-circle"></i>
+                <div>
+                    <h4>معلومات الاختبار</h4>
+                    <p>يتكون الاختبار من 50 سؤالاً متنوعاً. كل سؤال يحمل درجة واحدة. انقر على زر "بدء الاختبار" للبدء.</p>
+                </div>
+            </div>
+            
+            <div class="stats-card">
+                <i class="fas fa-chart-line"></i>
+                <div>
+                    <h4>إحصائيات</h4>
+                    <p id="statsText">لم تبدأ أي اختبار بعد</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="test-controls">
+            <button id="startTest" class="btn btn-primary">
+                <i class="fas fa-play"></i> بدء الاختبار الجديد
+            </button>
+            
+            <div class="test-progress" id="testProgress" style="display: none;">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <div class="progress-text">
+                    <span id="currentQuestion">0</span> / <span id="totalQuestions">50</span>
+                </div>
+            </div>
+            
+            <div class="test-actions" id="testActions" style="display: none;">
+                <button id="submitTest" class="btn btn-success">
+                    <i class="fas fa-check-circle"></i> عرض النتيجة
+                </button>
+                <button id="restartTest" class="btn btn-warning">
+                    <i class="fas fa-redo"></i> إعادة الاختبار
+                </button>
+            </div>
+        </div>
+
+        <!-- منطقة عرض الأسئلة -->
+        <div id="questionsContainer" class="questions-container"></div>
+
+        <!-- منطقة عرض النتيجة -->
+        <div id="resultsContainer" class="results-container" style="display: none;">
+            <div class="results-card">
+                <div class="results-header">
+                    <i class="fas fa-trophy"></i>
+                    <h2>نتيجة الاختبار</h2>
+                </div>
+                
+                <div class="results-body">
+                    <div class="score-display">
+                        <div class="score-circle">
+                            <span id="finalScore">0</span>
+                            <small>/ 50</small>
+                        </div>
+                        <div class="score-percentage">
+                            <span id="percentage">0%</span>
+                        </div>
+                    </div>
+                    
+                    <div class="results-details">
+                        <div class="result-item correct">
+                            <span>الإجابات الصحيحة</span>
+                            <strong id="correctCount">0</strong>
+                        </div>
+                        <div class="result-item wrong">
+                            <span>الإجابات الخاطئة</span>
+                            <strong id="wrongCount">0</strong>
+                        </div>
+                        <div class="result-item skipped">
+                            <span>الأسئلة غير المجابة</span>
+                            <strong id="skippedCount">0</strong>
+                        </div>
+                    </div>
+                    
+                    <div class="results-message">
+                        <p id="resultMessage">جاري حساب النتيجة...</p>
+                    </div>
+                    
+                    <div class="results-actions">
+                        <button id="showAnswers" class="btn btn-info">
+                            <i class="fas fa-list"></i> عرض الإجابات
+                        </button>
+                        <button id="newTest" class="btn btn-primary">
+                            <i class="fas fa-plus"></i> اختبار جديد
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <p><i class="fas fa-user-tie"></i> إعداد: Eng. Hazem F. AL-Huthaifi</p>
+                    <p><i class="fas fa-calendar-alt"></i> العام الدراسي: 2024/2025</p>
+                    <p><i class="fas fa-database"></i> قاعدة الأسئلة: <span id="questionCount">0</span> سؤال</p>
+                </div>
+                <div class="footer-note">
+                    <p>جميع الحقوق محفوظة © كلية الحاسوب وتكنولوجيا المعلومات - جامعة صنعاء</p>
+                    <p class="test-instruction">كل اختبار جديد يعرض 50 سؤالاً عشوائياً مختلفاً</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="questions.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
